@@ -18,4 +18,4 @@ Download this Yolo weight file
 
 Video tutorial how to setup and run
 
-[Click here]()
+[Click here](https://youtu.be/Ca098hx_ZqA)
