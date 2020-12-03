@@ -6,6 +6,7 @@ Object-Detection in python using Yolo v3
 install this commands
 
 pip install opencv-python
+
 pip install numpy
 
 2nd step:
