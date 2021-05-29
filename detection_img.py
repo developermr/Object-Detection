@@ -1,5 +1,8 @@
 import cv2
 import numpy as np
+from gtts import gTTS
+import os
+
 
 # Load Yolo
 net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")#training models of yolov3
@@ -11,9 +14,9 @@ output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # Loading image
-img = cv2.imread("images/p2.jpg")
+img = cv2.imread("images/p1.jpg")
 #img = cv2.resize(img, None, fx=0.4, fy=0.4)
-img = cv2.resize(img, None, fx=0.7, fy=0.7)# output screen size
+img = cv2.resize(img, None, fx=0.8, fy=0.8)# output screen size
 
 height, width, channels = img.shape
 
@@ -60,7 +63,15 @@ for i in range(len(boxes)):
         cv2.putText(img, label, (x, y - 20), font, 1, color, 2)# put label with crrosponding pictures
 
 
+mytext = label
+language = 'en'
+myobj = gTTS(text=mytext, lang=language, slow=True)
+myobj.save("welcome.mp3")
+os.system("start welcome.mp3")
+
+
 
 cv2.imshow("Image", img)#show the output
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
